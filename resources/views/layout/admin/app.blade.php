@@ -118,9 +118,9 @@
 
 <body class="app sidebar-mini">
 
-@include('layouts.admin._header')
+@include('layout.admin._header')
 
-@include('layouts.admin._aside')
+@include('layout.admin._aside')
 
 <main class="app-content">
 

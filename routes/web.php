@@ -13,6 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+Route::get('/home', function () {
+    return view('home');
+});
+
+Route::get('/new-login', function () {
+    return view('site.auth.login');
+});
+
+Route::get('/idea', function () {
+    
+    $ideas = \App\Models\Idea::all();
+
+    return view('site.idea.index', compact('ideas'));
+});
+
+Route::get('/idea.create', function () {
+    return view('site.idea.create');
+});
+
+Route::get('/new-register', function () {
+    return view('site.auth.register');
 });
