@@ -19,5 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserTableSeeder::class);
         $this->call(CategoryTableSeeder::class);
         $this->call(IdeaTableSeeder::class);
-    }
-}
+        $this->call(ConsultingTableSeeder::class);
+
+    }//end of run
+    
+}//end if vlass

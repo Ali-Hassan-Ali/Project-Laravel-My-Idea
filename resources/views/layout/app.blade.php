@@ -30,11 +30,14 @@
         <div class="container">
 
                 <a class="navbar-brand" href="{{ route('site.home') }}">
-                    Home
+                    @lang('site.home')
                 </a>
 
                 <a class="navbar-brand" href="{{ route('site.ideas.index') }}">
-                    Idea
+                    @lang('ideas.ideas')
+                </a>          
+                <a class="navbar-brand" href="{{ route('site.consultings.index') }}">
+                    @lang('consultings.consultings')
                 </a>          
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">

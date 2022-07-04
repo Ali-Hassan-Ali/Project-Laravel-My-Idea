@@ -6,6 +6,7 @@ use App\Http\Controllers\Site\IdeaController;
 use App\Http\Controllers\Site\Auth\AuthController;
 use App\Http\Controllers\Site\GuarpController;
 use App\Http\Controllers\Site\ChatController;
+use App\Http\Controllers\Site\ConsultingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,13 +49,9 @@ Route::name('site.')->group(function () {
     //store routes
     Route::post('/ideas/chat/store/', [ChatController::class, 'store'])->name('ideas.groups.chat.store');
 
+    // 
+    Route::resource('consultings', ConsultingController::class);
+
 });//group(function
 
 Auth::routes();
-
-Route::get('/idea', function () {
-    
-    $ideas = \App\Models\Idea::all();
-
-    return view('site.idea.index', compact('ideas'));
-});
