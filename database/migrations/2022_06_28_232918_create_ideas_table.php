@@ -21,6 +21,7 @@ class CreateIdeasTable extends Migration
             $table->string('source');
             $table->integer('views_count')->default(0);
 
+            $table->foreignIdFor(\App\Models\User::class);
             $table->foreignIdFor(\App\Models\Category::class);
             $table->timestamps();
         });

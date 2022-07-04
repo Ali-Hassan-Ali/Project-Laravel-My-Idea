@@ -17,14 +17,14 @@
 
                                 <div class="tile">
 
-                                    <form method="post" action="{{ route('site.ideas.store') }}" enctype="multipart/form-data">
+                                    <form method="post" action="{{ route('site.ideas.update', $idea->id) }}" enctype="multipart/form-data">
                                         @csrf
-                                        @method('post')
+                                        @method('put')
 
                                         {{--title--}}
                                         <div class="form-group">
                                             <label>@lang('ideas.title')<span class="text-danger">*</span></label>
-                                            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title') }}" required autofocus>
+                                            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $idea->title) }}" required autofocus>
                                             @error('title')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -35,7 +35,7 @@
                                         {{-- description --}}
                                         <div class="form-group">
                                             <label>@lang('ideas.description') <span class="text-danger">*</span></label>
-                                            <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="6">{{ old('description') }}</textarea>
+                                            <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="6">{{ old('description', $idea->description) }}</textarea>
                                             @error('description')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -46,7 +46,7 @@
                                         {{--file--}}
                                         <div class="form-group">
                                             <label>@lang('ideas.file')<span class="text-danger">*</span></label>
-                                            <input type="file" name="file" class="form-control @error('file') is-invalid @enderror" value="{{ old('file') }}" required autofocus>
+                                            <input type="file" name="file" class="form-control @error('file') is-invalid @enderror" value="{{ old('file') }}" autofocus>
                                             @error('file')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -60,7 +60,9 @@
                                             <select name="category_id" class="form-control select2" required>
                                                 <option value="">@lang('site.choose') @lang('categorys.categorys')</option>
                                                 @foreach ($categorys as $category)
-                                                    <option value="{{ $category->id }}" {{ $category->id == old('equipment_id') ? 'selected' : '' }}>{{ $category->name }}</option>
+                                                    <option value="{{ $category->id }}"
+                                                        {{ $category->id == old('category_id', $idea->category_id) ? 'selected' : '' }}
+                                                     >{{ $category->name }}</option>
                                                 @endforeach
                                             </select>
                                             @error('category_id')
@@ -73,7 +75,7 @@
                                         {{--source--}}
                                         <div class="form-group">
                                             <label>@lang('ideas.source')<span class="text-danger">*</span></label>
-                                            <input type="text" name="source" class="form-control @error('source') is-invalid @enderror" value="{{ old('source') }}" required autofocus>
+                                            <input type="text" name="source" class="form-control @error('source') is-invalid @enderror" value="{{ old('source', $idea->source) }}" required autofocus>
                                             @error('source')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>

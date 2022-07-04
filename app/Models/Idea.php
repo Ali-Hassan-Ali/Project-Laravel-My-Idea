@@ -17,6 +17,12 @@ class Idea extends Model
 
     }//end of fun
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+
+    }//end of fun
+
     public function like()
     {
         return $this->hasMany(Like::class);
@@ -24,9 +30,15 @@ class Idea extends Model
     }//end of fun
 
 
-    public function comment()
+    public function comments()
     {
         return $this->hasMany(Comment::class);
+
+    }//end of fun
+
+    public function groups()
+    {
+        return $this->hasMany(Group::class);
 
     }//end of fun
 

@@ -5,7 +5,10 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Idea</div>
+                    <div class="card-header">
+                        Idea
+                        <a href="{{ route('site.ideas.create') }}" class="mr-0">create</a>
+                    </div>
 
                     <div class="card-body">
 
@@ -25,6 +28,7 @@
                                             <th>@lang('ideas.likes')</th>
                                             <th>@lang('ideas.comments')</th>
                                             <th>@lang('site.created_at')</th>
+                                            <th>@lang('site.action')</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -35,8 +39,21 @@
                                                 <td>{{ $idea->title }}</td>
                                                 <td>{{ $idea->views_count }}</td>
                                                 <td>{{ $idea->like->count() }}</td>
-                                                <td>{{ $idea->comment->count() }}</td>
+                                                <td>{{ $idea->comments->count() }}</td>
                                                 <td>{{ $idea->created_at }}</td>
+                                                <td>
+                                                    <a href="{{ route('site.ideas.edit', $idea->id) }}" class="btn btn-warning btn-sm">
+                                                        <i class="fa fa-edit"></i> @lang('site.edit')
+                                                    </a>
+                                                    <a href="{{ route('site.ideas.show', $idea->id) }}" class="btn btn-primary btn-sm">
+                                                        <i class="fa fa-eys"></i> @lang('site.show')
+                                                    </a>
+                                                    <form action="{{ route('site.ideas.destroy', $idea->id) }}" class="my-1 my-xl-0" method="post" style="display: inline-block;">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="btn btn-danger btn-sm delete"><i class="fa fa-trash"></i> @lang('site.delete')</button>
+                                                    </form>
+                                                </td>
                                             </tr>
                                             @endforeach
                                         </tbody>

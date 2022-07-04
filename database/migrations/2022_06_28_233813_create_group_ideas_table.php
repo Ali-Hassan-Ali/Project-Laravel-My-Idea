@@ -16,7 +16,6 @@ class CreateGroupIdeasTable extends Migration
         Schema::create('group_ideas', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Group::class);
-            $table->foreignIdFor(\App\Models\Idea::class);
             $table->foreignIdFor(\App\Models\User::class);
             $table->timestamps();
         });

@@ -16,9 +16,8 @@ class CreateChatsTable extends Migration
         Schema::create('chats', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\Group::class);
-            $table->string('from');
-            $table->string('to');
-            $table->string('message');
+            $table->foreignIdFor(\App\Models\User::class);
+            $table->text('message');
             $table->timestamps();
         });
     }

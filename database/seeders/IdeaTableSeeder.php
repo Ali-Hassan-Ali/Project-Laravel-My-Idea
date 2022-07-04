@@ -17,11 +17,23 @@ class IdeaTableSeeder extends Seeder
 
         foreach ($ideas as $key => $idea) {
 
-            \App\Models\Idea::create([
+            $ideaing = \App\Models\Idea::create([
                 'title'          => $idea,
-                'description'    => 'description description description description description',
+                'description'    => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip consequat',
                 'source'         => 'source',
                 'category_id'    => 1,
+                'user_id'        => 1,
+            ]);
+
+            $group = \App\Models\Group::create([
+                'name'    => $ideaing->title,
+                'idea_id' => $ideaing->id,
+                'user_id' => 1,
+            ]);
+
+            \App\Models\GroupIdea::create([
+                'group_id' => $group->id,
+                'user_id'  => 1,
             ]);
             
         }//end of each
