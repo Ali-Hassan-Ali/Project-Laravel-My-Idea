@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class upadtePasswordRequest extends FormRequest
+class LoginRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,10 +23,13 @@ class upadtePasswordRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            "password"=> "required",
-            "password_Conf" => "required|same:password"
+        $rules = [
+            'email'     => ['required','min:2','max:20','email','exists:users'],
+            'password'  => ['required','min:6','max:20'],
         ];
-    }
 
-}
+        return $rules;
+
+    }//end of rules
+
+}//end of request

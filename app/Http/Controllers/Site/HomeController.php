@@ -10,7 +10,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        auth()->login(User::first());
+        // auth()->login(User::first());
         
         return view('home');
         
