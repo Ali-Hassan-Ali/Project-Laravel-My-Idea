@@ -9,8 +9,22 @@
 
                     <div class="card-body">
 
+                        <h3>@lang('settings.vision')</h3>
+                        <p>{{ setting('vision') }}</p>
 
-                        {{-- <a href="" class="btn btn-primary">Dashboard</a> --}}
+                    </div>
+
+                    <div class="card-body">
+
+                        <h3>@lang('settings.the_message')</h3>
+                        <p>{{ setting('the_message') }}</p>
+
+                    </div>
+
+                    <div class="card-body">
+
+                        <h3>@lang('settings.objectives')</h3>
+                        <p>{{ setting('objectives') }}</p>
 
                     </div>
                 </div>

@@ -7,6 +7,7 @@ use App\Http\Controllers\Site\Auth\AuthController;
 use App\Http\Controllers\Site\GuarpController;
 use App\Http\Controllers\Site\ChatController;
 use App\Http\Controllers\Site\ConsultingController;
+use App\Http\Controllers\Site\ContactsController;
 use App\Http\Controllers\Site\InspiringStorieController;
 
 /*
@@ -29,7 +30,7 @@ Route::get('/new-register', function () {
     return view('site.auth.register');
 });
 
-Route::name('site.')->group(function () {
+Route::name('site.')->middleware('auth')->group(function () {
 
     // Route::post('login', [AuthController::class, 'login'])->name('loginm');
 
@@ -58,6 +59,9 @@ Route::name('site.')->group(function () {
     // inspiring_stories routes
     Route::get('inspiring_stories/like/{inspiring_storie}', [InspiringStorieController::class, 'like'])->name('inspiring_stories.like.store');
     Route::resource('inspiring_stories', InspiringStorieController::class);
+
+    Route::get('contacts/create', [ContactsController::class, 'create'])->name('contacts.create');
+    Route::post('contacts/store', [ContactsController::class, 'store'])->name('contacts.store');
 
 });//group(function
 

@@ -21,8 +21,8 @@
 
         {{--admins--}}
         @if (auth('admin')->user()->hasPermission('read_admins'))
-        @endif
             <li><a class="app-menu__item {{ request()->is('*admins*') ? 'active' : '' }}" href="{{ route('dashboard.admin.admins.index') }}"><i class="app-menu__icon fa-solid fa-users"></i> <span class="app-menu__label">@lang('admins.admins')</span></a></li>
+        @endif
 
         {{--categorys--}}
         @if (auth('admin')->user()->hasPermission('read_categorys'))
@@ -32,7 +32,8 @@
         {{--admins--}}
         @if (auth('admin')->user()->hasPermission('read_ideas'))
         @endif
-            <li><a class="app-menu__item {{ request()->is('*ideas*') ? 'active' : '' }}" href="{{ route('dashboard.admin.ideas.index') }}"><i class="app-menu__icon fa-solid fa-users"></i> <span class="app-menu__label">@lang('ideas.ideas')</span></a></li>
+        <li><a class="app-menu__item {{ request()->is('*ideas*') ? 'active' : '' }}" href="{{ route('dashboard.admin.ideas.index') }}"><i class="app-menu__icon fa-solid fa-users"></i> <span class="app-menu__label">@lang('ideas.ideas')</span></a></li>
+        <li><a class="app-menu__item {{ request()->is('*contacts*') ? 'active' : '' }}" href="{{ route('dashboard.admin.contacts.index') }}"><i class="app-menu__icon fa-solid fa-users"></i> <span class="app-menu__label">@lang('contacts.contacts')</span></a></li>
 
                     {{--profile--}}
         <li class="treeview {{ request()->is('*admin*') || request()->is('*settings*')  ? 'is-expanded' : '' }}"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-user-circle"></i><span class="app-menu__label">@lang('settings.settings')</span><i class="treeview-indicator fa fa-angle-right"></i></a>

@@ -42,6 +42,11 @@
                 <a class="navbar-brand" href="{{ route('site.inspiring_stories.index') }}">
                     @lang('inspiring_stories.inspiring_stories')
                 </a>          
+
+                <a class="navbar-brand" href="{{ route('site.contacts.create') }}">
+                    @lang('contacts.contacts')
+                </a>          
+
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->
