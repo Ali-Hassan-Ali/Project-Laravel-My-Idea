@@ -17,7 +17,7 @@
 
                                 <div class="tile">
 
-                                    <form method="post" action="{{ route('site.inspiring_stories.store') }}" enctype="multipart/form-data">
+                                    <form method="post" action="{{ route('site.inspiring_storie.store') }}" enctype="multipart/form-data">
                                         @csrf
                                         @method('post')
 

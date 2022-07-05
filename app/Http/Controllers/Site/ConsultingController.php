@@ -101,8 +101,10 @@ class ConsultingController extends Controller
 
     public function like(Consulting $consulting)
     {
-
-        $like = Like::where('consulting_id', $consulting->id)->first();
+        $like = Like::where([
+                    'user_id'       => auth()->id(),
+                    'consulting_id' => $consulting->id
+                    ])->first();
 
         if (!$like) {
             

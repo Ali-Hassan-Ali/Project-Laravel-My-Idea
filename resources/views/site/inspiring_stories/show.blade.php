@@ -7,7 +7,7 @@
                 <div class="card">
 
                     <div class="card-header">
-                        inspiringStorie show | {{ $inspiringStorie->title }}
+                        inspiring_storie show | {{ $inspiring_storie->title }}
                     </div>
 
                     <div class="card-body">
@@ -23,30 +23,30 @@
                                         src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="60"
                                         height="60" />
                                       <div>
-                                        <h6 class="fw-bold text-primary mb-1">{{ $inspiringStorie->user->name }}</h6>
+                                        <h6 class="fw-bold text-primary mb-1">{{ $inspiring_storie->user->name }}</h6>
                                         <p class="text-muted small mb-0">
-                                          Shared publicly - {{ $inspiringStorie->created_at }}
+                                          Shared publicly - {{ $inspiring_storie->created_at }}
                                         </p>
                                       </div>
                                     </div> --}}
 
                                     {{-- <p class="mt-3"> --}}
-                                      {{-- <strong>{{ $inspiringStorie->title }}</strong> --}}
+                                      {{-- <strong>{{ $inspiring_storie->title }}</strong> --}}
                                     {{-- </p> --}}
 
                                     <p class="mb-4 pb-2">
-                                      <h3>{{ $inspiringStorie->title }}</h3>
+                                      <h3>{{ $inspiring_storie->title }}</h3>
                                     </p>
 
                                     <p class="mt-3 mb-4 pb-2">
-                                      {{ $inspiringStorie->description }}
+                                      {{ $inspiring_storie->description }}
                                     </p>
 
                                     <div class="small d-flex justify-content-start">
 
-                                      <a href="{{ route('site.inspiring_stories.like.store', $inspiringStorie->id) }}" class="d-flex align-items-center me-3">
+                                      <a href="{{ route('site.inspiring_storie.like.store', $inspiring_storie->id) }}" class="d-flex align-items-center me-3">
                                           <i class="fa fa-thumbs-up me-2"></i>
-                                          <p class="mb-0">Like {{ $inspiringStorie->like->count() }}</p>
+                                          <p class="mb-0">Like {{ $inspiring_storie->like->count() }}</p>
                                       </a>
                                       {{-- <a href="#!" class="d-flex align-items-center me-3">
                                         <i class="fa fa-share me-2"></i>
@@ -54,7 +54,7 @@
                                       </a> --}}
                                       <a href="#!" class="d-flex align-items-center me-3">
                                         <i class="fa fa-eye me-2"></i>
-                                        <p class="mb-0">viws {{ $inspiringStorie->views_count }}</p>
+                                        <p class="mb-0">viws {{ $inspiring_storie->views_count }}</p>
                                       </a>
                                     </div>
                                   </div>

@@ -130,8 +130,10 @@ class IdeaController extends Controller
 
     public function like(Idea $idea)
     {
-
-        $like = Like::where('idea_id', $idea->id)->first();
+        $like = Like::where([
+                    'user_id' => auth()->id(),
+                    'idea_id' => $idea->id
+                    ])->first();
 
         if (!$like) {
             

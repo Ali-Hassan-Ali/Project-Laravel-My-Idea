@@ -38,30 +38,29 @@ class InspiringStorieController extends Controller
 
         InspiringStorie::create($request_data);
 
-        return redirect()->route('site.inspiring_stories.index');
+        return redirect()->route('site.inspiring_storie.index');
 
     }//end omf store
 
     
-    public function show($id)
+    public function show(InspiringStorie $inspiring_storie)
     {
-        $inspiringStorie = InspiringStorie::find($id);
 
-        return view('site.inspiring_stories.show', compact('inspiringStorie'));
+        $inspiring_storie->update(['views_count' => $inspiring_storie->views_count + 1]);
+
+        return view('site.inspiring_stories.show', compact('inspiring_storie'));
 
     }//end of show
 
     
-    public function edit($id)
+    public function edit(InspiringStorie $inspiring_storie)
     {
-        $inspiringStorie = InspiringStorie::find($id);
-
-        return view('site.inspiring_stories.edit', compact('inspiringStorie'));
+        return view('site.inspiring_stories.edit', compact('inspiring_storie'));
 
     }//end of edit
 
 
-    public function update(Request $request, $id)
+    public function update(Request $request, InspiringStorie $inspiring_storie)
     {
         $request_validated = $request->validate([
             'title'       => 'required',
@@ -71,30 +70,29 @@ class InspiringStorieController extends Controller
         $request_data = $request_validated;
         $request_data['user_id'] = auth()->id();
 
-        $inspiringStorie = InspiringStorie::find($id);
+        $inspiring_storie->update($request_data);
 
-        $inspiringStorie->update($request_data);
-
-        return redirect()->route('site.inspiring_stories.index');
+        return redirect()->route('site.inspiring_storie.index');
 
     }//end omf update
 
     
-    public function destroy($id)
+    public function destroy(InspiringStorie $inspiring_storie)
     {
-        $inspiringStorie = InspiringStorie::find($id);
+        $inspiring_storie->delete();
 
-        $inspiringStorie->delete();
-
-        return redirect()->route('site.inspiring_stories.index');
+        return redirect()->route('site.inspiring_storie.index');
 
     }//end omf destroy
 
     public function like(InspiringStorie $inspiring_storie)
     {
-        $stories = Like::where('inspiring_storie_id', $inspiring_storie->id)->first();
+        $like = Like::where([
+                    'user_id' => auth()->id(),
+                    'inspiring_storie_id' => $inspiring_storie->id
+                    ])->first();
 
-        if (!$stories) {
+        if (!$like) {
             
             Like::create([
                 'user_id'             => auth()->id(),
@@ -103,7 +101,7 @@ class InspiringStorieController extends Controller
 
         } else {
 
-            $stories->delete();
+            $like->delete();
         }
 
 

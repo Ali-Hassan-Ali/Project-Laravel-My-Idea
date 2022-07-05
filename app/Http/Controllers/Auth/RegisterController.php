@@ -20,7 +20,7 @@ class RegisterController extends Controller
         $requestData = $request->validated();
         $requestData['password'] = bcrypt($request->password);
 
-        $user = User::create($request->except('password_confirmation'));
+        $user = User::create($requestData);
 
         auth()->login($user);
 

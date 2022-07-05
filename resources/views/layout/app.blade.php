@@ -36,7 +36,7 @@
                 <a class="navbar-brand" href="{{ route('site.consultings.index') }}">
                     @lang('consultings.consultings')
                 </a>          
-                <a class="navbar-brand" href="{{ route('site.inspiring_stories.index') }}">
+                <a class="navbar-brand" href="{{ route('site.inspiring_storie.index') }}">
                     @lang('inspiring_stories.inspiring_stories')
                 </a>          
 

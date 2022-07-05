@@ -13,54 +13,51 @@
 
                     <div class="card-body">
 
-                        <div class="row">
+                        @foreach ($group->chats as $chat)
+                            @if ($chat->user_id == auth()->id())
+                                <div class="alert alert-dark" role="alert">
+                                    <h4 class="alert-heading">{{ $chat->user->name }}</h4>
+                                    {{ $chat->message }}
+                                </div>
+                            @else
+                                <div class="alert alert-primary" role="alert">
+                                    <h4 class="alert-heading">{{ $chat->user->name }}</h4>
+                                    {{ $chat->message }}
+                                </div>
+                                <br>
+                            @endif
+                        @endforeach
 
-                            @foreach ($group->chats as $chat)
-                                @if ($chat->user_id == auth()->id())
-                                    <div class="alert alert-dark" role="alert">
-                                        <h4 class="alert-heading">{{ $chat->user->name }}</h4>
-                                        {{ $chat->message }}
+                        <div class="col-md-12">
+
+                            <div class="tile">
+
+                                <form method="post" action="{{ route('site.ideas.groups.chat.store') }}" enctype="multipart/form-data">
+                                    @csrf
+                                    @method('post')
+
+                                    <input type="number" value="{{ $group->id }}" name="group_id" hidden>
+
+                                    {{--message--}}
+                                    <div class="form-group">
+                                        <label>@lang('ideas.message')<span class="text-danger">*</span></label>
+                                        <input type="text" name="message" class="form-control @error('message') is-invalid @enderror" value="{{ old('message') }}" required autofocus>
+                                        @error('message')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
                                     </div>
-                                @else
-                                    <div class="alert alert-primary" role="alert">
-                                        <h4 class="alert-heading">{{ $chat->user->name }}</h4>
-                                        {{ $chat->message }}
+                                
+                                    <div class="form-group">
+                                        <button type="submit" class="btn btn-primary col-12"><i class="fa fa-plus"></i>@lang('site.create')</button>
                                     </div>
-                                @endif
-                            @endforeach
 
-                            <div class="col-md-12">
+                                </form><!-- end of form -->
 
-                                <div class="tile">
+                            </div><!-- end of tile -->
 
-                                    <form method="post" action="{{ route('site.ideas.groups.chat.store') }}" enctype="multipart/form-data">
-                                        @csrf
-                                        @method('post')
-
-                                        <input type="number" value="{{ $group->id }}" name="group_id" hidden>
-
-                                        {{--message--}}
-                                        <div class="form-group">
-                                            <label>@lang('ideas.message')<span class="text-danger">*</span></label>
-                                            <input type="text" name="message" class="form-control @error('message') is-invalid @enderror" value="{{ old('message') }}" required autofocus>
-                                            @error('message')
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $message }}</strong>
-                                                </span>
-                                            @enderror
-                                        </div>
-                                    
-                                        <div class="form-group">
-                                            <button type="submit" class="btn btn-primary col-12"><i class="fa fa-plus"></i>@lang('site.create')</button>
-                                        </div>
-
-                                    </form><!-- end of form -->
-
-                                </div><!-- end of tile -->
-
-                            </div><!-- end of col -->
-
-                        </div><!-- end of row -->
+                        </div><!-- end of col -->
 
                     </div>
                 </div>

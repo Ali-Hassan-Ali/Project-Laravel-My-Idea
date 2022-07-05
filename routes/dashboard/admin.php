@@ -7,6 +7,8 @@ use App\Http\Controllers\Dashboard\Admin\HomeController;
 use App\Http\Controllers\Dashboard\Admin\AdminController;
 use App\Http\Controllers\Dashboard\Admin\CategoryController;
 use App\Http\Controllers\Dashboard\Admin\IdeaController;
+use App\Http\Controllers\Dashboard\Admin\InspiringStorieController;
+use App\Http\Controllers\Dashboard\Admin\ConsultingController;
 use App\Http\Controllers\Dashboard\Admin\SettingController;
 use App\Http\Controllers\Dashboard\Admin\ContactsController;
 use App\Http\Controllers\Dashboard\Admin\Auth\AuthController;
@@ -43,6 +45,17 @@ Route::prefix('dashboard/admin')->name('dashboard.admin.')->middleware('auth:adm
 	Route::get('/ideas/data', [IdeaController::class, 'data'])->name('ideas.data');
     Route::delete('/ideas/bulk_delete', [IdeaController::class, 'bulkDelete'])->name('ideas.bulk_delete');
 	Route::resource('ideas', IdeaController::class);
+
+	// ideas
+	Route::get('/inspiring_storie/data', [InspiringStorieController::class, 'data'])->name('inspiring_storie.data');
+    Route::delete('/inspiring_storie/bulk_delete', [InspiringStorieController::class, 'bulkDelete'])->name('inspiring_storie.bulk_delete');
+	Route::resource('inspiring_storie', InspiringStorieController::class);
+
+
+	// ideas
+	Route::get('/consultings/data', [ConsultingController::class, 'data'])->name('consultings.data');
+    Route::delete('/consultings/bulk_delete', [ConsultingController::class, 'bulkDelete'])->name('consultings.bulk_delete');
+	Route::resource('consultings', ConsultingController::class);
 
 	// contacts
 	Route::get('/contacts/data', [ContactsController::class, 'data'])->name('contacts.data');

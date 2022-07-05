@@ -23,9 +23,9 @@ class LoginController extends Controller
 
         if($user) {
 
-            $credentials = $request->only('email', 'password');
+            $credentials = $request->only('password','email');
 
-            if (auth()->attempt($credentials, true)) {
+            if (auth()->attempt($credentials)) {
 
                 return redirect('/');
             }

@@ -57,8 +57,8 @@ Route::name('site.')->group(function () {
     Route::resource('consultings', ConsultingController::class);
 
     // inspiring_stories routes
-    Route::get('inspiring_stories/like/{inspiring_storie}', [InspiringStorieController::class, 'like'])->name('inspiring_stories.like.store');
-    Route::resource('inspiring_stories', InspiringStorieController::class);
+    Route::get('inspiring_storie/like/{inspiring_storie}', [InspiringStorieController::class, 'like'])->name('inspiring_storie.like.store');
+    Route::resource('inspiring_storie', InspiringStorieController::class);
 
     Route::get('contacts/create', [ContactsController::class, 'create'])->name('contacts.create');
     Route::post('contacts/store', [ContactsController::class, 'store'])->name('contacts.store');

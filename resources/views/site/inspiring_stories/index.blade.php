@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">
                         <th>@lang('inspiring_stories.inspiring_stories')</th>
-                        <a href="{{ route('site.inspiring_stories.create') }}" class="mr-0"><th>@lang('site.create')</th></a>
+                        <a href="{{ route('site.inspiring_storie.create') }}" class="mr-0"><th>@lang('site.create')</th></a>
                     </div>
 
                     <div class="card-body">
@@ -36,13 +36,13 @@
                                                 <td>{{ $stories->like->count() }}</td>
                                                 <td>{{ $stories->created_at }}</td>
                                                 <td>
-                                                    <a href="{{ route('site.inspiring_stories.edit', $stories->id) }}" class="btn btn-warning btn-sm">
+                                                    <a href="{{ route('site.inspiring_storie.edit', $stories->id) }}" class="btn btn-warning btn-sm">
                                                         <i class="fa fa-edit"></i> @lang('site.edit')
                                                     </a>
-                                                    <a href="{{ route('site.inspiring_stories.show', $stories->id) }}" class="btn btn-primary btn-sm">
+                                                    <a href="{{ route('site.inspiring_storie.show', $stories->id) }}" class="btn btn-primary btn-sm">
                                                         <i class="fa fa-eys"></i> @lang('site.show')
                                                     </a>
-                                                    <form action="{{ route('site.inspiring_stories.destroy', $stories->id) }}" class="my-1 my-xl-0" method="post" style="display: inline-block;">
+                                                    <form action="{{ route('site.inspiring_storie.destroy', $stories->id) }}" class="my-1 my-xl-0" method="post" style="display: inline-block;">
                                                         @csrf
                                                         @method('delete')
                                                         <button type="submit" class="btn btn-danger btn-sm delete"><i class="fa fa-trash"></i> @lang('site.delete')</button>

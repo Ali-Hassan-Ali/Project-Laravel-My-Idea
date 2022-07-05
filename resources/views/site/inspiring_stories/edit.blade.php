@@ -6,7 +6,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">
-                        @lang('inspiringStories.inspiringStories')
+                        @lang('inspiring_stories.inspiring_stories')
                     </div>
 
                     <div class="card-body">
@@ -17,14 +17,14 @@
 
                                 <div class="tile">
 
-                                    <form method="post" action="{{ route('site.inspiring_stories.update', $inspiringStorie->id) }}" enctype="multipart/form-data">
+                                    <form method="post" action="{{ route('site.inspiring_storie.update', $inspiring_storie->id) }}" enctype="multipart/form-data">
                                         @csrf
                                         @method('put')
 
                                         {{--title--}}
                                         <div class="form-group">
                                             <label>@lang('ideas.title')<span class="text-danger">*</span></label>
-                                            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $inspiringStorie->title) }}" required autofocus>
+                                            <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $inspiring_storie->title) }}" required autofocus>
                                             @error('title')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -34,8 +34,8 @@
 
                                         {{-- description --}}
                                         <div class="form-group">
-                                            <label>@lang('inspiringStories.description') <span class="text-danger">*</span></label>
-                                            <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="6">{{ old('description', $inspiringStorie->description) }}</textarea>
+                                            <label>@lang('inspiring_stories.description') <span class="text-danger">*</span></label>
+                                            <textarea class="form-control @error('description') is-invalid @enderror" name="description" rows="6">{{ old('description', $inspiring_storie->description) }}</textarea>
                                             @error('description')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
