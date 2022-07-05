@@ -3,6 +3,7 @@
 return [
 
     'ideas'      => 'الافكار',
+    'my_ideas'   => 'فكرتي',
     'description'=> 'الفقره',
     'title'      => 'العنوان',
     'views_count'=> 'عدد المشاهدات',

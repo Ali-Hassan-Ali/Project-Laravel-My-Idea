@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" type="text/css" href="{{ asset('admin_assets/css/font-awesome.min.css') }}">
 </head>
-<body>
+<body style="background-color: #eee;">
 <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
         <div class="container">
@@ -82,7 +82,7 @@
         </div>
     </nav>
 
-    <main class="py-4" style="background-color: #eee;">
+    <main class="py-4">
         @yield('content')
     </main>
 </div>

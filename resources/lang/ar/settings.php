@@ -22,4 +22,9 @@ return [
     'android' => 'Android',
     'ios' => 'IOS',
     'google_map_api_key' => 'Google map api key',
+
+
+    'vision' => 'الرؤية',
+    'the_message' => 'الرسالة',
+    'objectives' => 'الاهداف',
 ];

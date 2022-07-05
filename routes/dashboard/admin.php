@@ -7,6 +7,7 @@ use App\Http\Controllers\Dashboard\Admin\HomeController;
 use App\Http\Controllers\Dashboard\Admin\AdminController;
 use App\Http\Controllers\Dashboard\Admin\CategoryController;
 use App\Http\Controllers\Dashboard\Admin\IdeaController;
+use App\Http\Controllers\Dashboard\Admin\SettingController;
 use App\Http\Controllers\Dashboard\Admin\Auth\AuthController;
 
 
@@ -22,6 +23,10 @@ Route::post('/dashboard/admin/logout', [AuthController::class, 'logout'])
 Route::prefix('dashboard/admin')->name('dashboard.admin.')->middleware('auth:admin')->group(function () {
 
 	Route::get('/', [HomeController::class, 'index'])->name('home');
+
+	// seeting route
+	Route::get('/seeting', [SettingController::class, 'index'])->name('settings.index');
+	Route::post('/seeting/store', [SettingController::class, 'store'])->name('settings.store');
 
 	//admin routes
     Route::get('/admins/data', [AdminController::class, 'data'])->name('admins.data');
