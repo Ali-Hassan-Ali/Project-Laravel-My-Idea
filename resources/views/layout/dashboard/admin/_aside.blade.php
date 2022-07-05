@@ -30,6 +30,7 @@
             <li><a class="app-menu__item {{ request()->is('*categorys*') ? 'active' : '' }}" href="{{ route('dashboard.admin.categorys.index') }}"><i class="app-menu__icon fa-solid fa-users"></i> <span class="app-menu__label">@lang('categorys.categorys')</span></a></li>
 
             <li><a class="app-menu__item {{ request()->is('*inspiring_storie*') ? 'active' : '' }}" href="{{ route('dashboard.admin.inspiring_storie.index') }}"><i class="app-menu__icon fa-solid fa-users"></i> <span class="app-menu__label">@lang('inspiring_stories.inspiring_stories')</span></a></li>
+            <li><a class="app-menu__item {{ request()->is('*posts*') ? 'active' : '' }}" href="{{ route('dashboard.admin.posts.index') }}"><i class="app-menu__icon fa-solid fa-users"></i> <span class="app-menu__label">@lang('posts.posts')</span></a></li>
 
         {{--admins--}}
         @if (auth('admin')->user()->hasPermission('read_ideas'))

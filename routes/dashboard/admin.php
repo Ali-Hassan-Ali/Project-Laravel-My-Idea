@@ -11,6 +11,7 @@ use App\Http\Controllers\Dashboard\Admin\InspiringStorieController;
 use App\Http\Controllers\Dashboard\Admin\ConsultingController;
 use App\Http\Controllers\Dashboard\Admin\SettingController;
 use App\Http\Controllers\Dashboard\Admin\ContactsController;
+use App\Http\Controllers\Dashboard\Admin\PostController;
 use App\Http\Controllers\Dashboard\Admin\Auth\AuthController;
 
 
@@ -61,5 +62,10 @@ Route::prefix('dashboard/admin')->name('dashboard.admin.')->middleware('auth:adm
 	Route::get('/contacts/data', [ContactsController::class, 'data'])->name('contacts.data');
     Route::delete('/contacts/bulk_delete', [ContactsController::class, 'bulkDelete'])->name('contacts.bulk_delete');
 	Route::resource('contacts', ContactsController::class);
+
+	// posts
+	Route::get('/posts/data', [PostController::class, 'data'])->name('posts.data');
+    Route::delete('/posts/bulk_delete', [PostController::class, 'bulkDelete'])->name('posts.bulk_delete');
+	Route::resource('posts', PostController::class);
 
 });//group(function

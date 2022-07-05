@@ -17,7 +17,8 @@ class CreateCommentsTable extends Migration
             $table->id();
             $table->string('message')->nullable();
             $table->foreignIdFor(\App\Models\User::class);
-            $table->foreignIdFor(\App\Models\Idea::class);
+            $table->foreignIdFor(\App\Models\Idea::class)->nullable();
+            $table->foreignIdFor(\App\Models\Post::class)->nullable();
             $table->timestamps();
         });
     }

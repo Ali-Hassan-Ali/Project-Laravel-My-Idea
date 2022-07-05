@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoryTableSeeder::class);
         $this->call(IdeaTableSeeder::class);
         $this->call(ConsultingTableSeeder::class);
-        $this->call(InspiringStorieTableSeeder::class);
+        $this->call(PostTableSeeder::class);
 
     }//end of run
     

@@ -8,6 +8,7 @@ use App\Http\Controllers\Site\GuarpController;
 use App\Http\Controllers\Site\ChatController;
 use App\Http\Controllers\Site\ConsultingController;
 use App\Http\Controllers\Site\ContactsController;
+use App\Http\Controllers\Site\PostController;
 use App\Http\Controllers\Site\InspiringStorieController;
 
 /*
@@ -62,6 +63,10 @@ Route::name('site.')->group(function () {
 
     Route::get('contacts/create', [ContactsController::class, 'create'])->name('contacts.create');
     Route::post('contacts/store', [ContactsController::class, 'store'])->name('contacts.store');
+
+    Route::get('posts/like/{post}', [PostController::class, 'like'])->name('posts.like.store');
+    Route::post('/comment', [PostController::class, 'comment'])->name('posts.comment');
+    Route::resource('posts', PostController::class);
 
 });//group(function
 

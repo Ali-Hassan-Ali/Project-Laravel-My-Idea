@@ -15,6 +15,12 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->string('image')->default('post_images/default.png');
+            $table->text('body');
+            $table->integer('views_count')->default(0);
+            
+            $table->foreignIdFor(\App\Models\User::class);
             $table->timestamps();
         });
     }

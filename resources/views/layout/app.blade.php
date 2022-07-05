@@ -42,7 +42,11 @@
 
                 <a class="navbar-brand" href="{{ route('site.contacts.create') }}">
                     @lang('contacts.contacts')
-                </a>          
+                </a>
+
+                <a class="navbar-brand" href="{{ route('site.posts.index') }}">
+                    @lang('posts.posts')
+                </a>
 
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
