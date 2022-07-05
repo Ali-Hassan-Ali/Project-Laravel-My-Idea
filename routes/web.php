@@ -22,7 +22,7 @@ use App\Http\Controllers\Site\InspiringStorieController;
 */
 
 
-Route::get('/new-login', function () {
+Route::get('/login', function () {
     return view('site.auth.login');
 });
 
@@ -30,7 +30,7 @@ Route::get('/new-register', function () {
     return view('site.auth.register');
 });
 
-Route::name('site.')->middleware('auth')->group(function () {
+Route::name('site.')->group(function () {
 
     // Route::post('login', [AuthController::class, 'login'])->name('loginm');
 
