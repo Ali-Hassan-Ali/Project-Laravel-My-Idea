@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Site;
 use App\Http\Controllers\Controller;
 use App\Models\Consulting;
 use App\Models\Category;
+use App\Models\Like;
 use Illuminate\Http\Request;
 
 class ConsultingController extends Controller
@@ -97,5 +98,27 @@ class ConsultingController extends Controller
         return redirect()->route('site.consultings.index');
 
     }//end of destroy
+
+    public function like(Consulting $consulting)
+    {
+
+        $like = Like::where('consulting_id', $consulting->id)->first();
+
+        if (!$like) {
+            
+            Like::create([
+                'user_id'       => auth()->id(),
+                'consulting_id' => $consulting->id,
+            ]);
+
+        } else {
+
+            $like->delete();
+        }
+
+
+        return redirect()->back();
+
+    }//end of like
 
 }//end of controller

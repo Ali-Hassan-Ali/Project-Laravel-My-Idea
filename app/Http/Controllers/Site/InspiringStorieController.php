@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
 use App\Models\InspiringStorie;
+use App\Models\Like;
 use Illuminate\Http\Request;
 
 class InspiringStorieController extends Controller
@@ -88,5 +89,26 @@ class InspiringStorieController extends Controller
         return redirect()->route('site.inspiring_stories.index');
 
     }//end omf destroy
+
+    public function like(InspiringStorie $inspiring_storie)
+    {
+        $stories = Like::where('inspiring_storie_id', $inspiring_storie->id)->first();
+
+        if (!$stories) {
+            
+            Like::create([
+                'user_id'             => auth()->id(),
+                'inspiring_storie_id' => $inspiring_storie->id,
+            ]);
+
+        } else {
+
+            $stories->delete();
+        }
+
+
+        return redirect()->back();
+
+    }//end of like
 
 }//end of controller

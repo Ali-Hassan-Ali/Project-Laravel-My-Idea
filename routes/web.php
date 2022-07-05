@@ -37,6 +37,7 @@ Route::name('site.')->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
 
     //admin routes
+    Route::get('ideas/like/{idea}', [IdeaController::class, 'like'])->name('ideas.like.store');
     Route::post('/comment', [IdeaController::class, 'comment'])->name('ideas.comment');
     Route::resource('ideas', IdeaController::class);
 
@@ -51,9 +52,11 @@ Route::name('site.')->group(function () {
     Route::post('/ideas/chat/store/', [ChatController::class, 'store'])->name('ideas.groups.chat.store');
 
     // consultings routes
+    Route::get('consultings/like/{consulting}', [ConsultingController::class, 'like'])->name('consultings.like.store');
     Route::resource('consultings', ConsultingController::class);
 
     // inspiring_stories routes
+    Route::get('inspiring_stories/like/{inspiring_storie}', [InspiringStorieController::class, 'like'])->name('inspiring_stories.like.store');
     Route::resource('inspiring_stories', InspiringStorieController::class);
 
 });//group(function

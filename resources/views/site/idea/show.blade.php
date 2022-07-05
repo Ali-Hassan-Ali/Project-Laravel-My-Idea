@@ -39,7 +39,7 @@
                                     </p>
 
                                     <div class="small d-flex justify-content-start">
-                                      <a href="#!" class="d-flex align-items-center me-3">
+                                      <a href="{{ route('site.ideas.like.store', $idea->id) }}" class="d-flex align-items-center me-3">
                                         <i class="fa fa-thumbs-up me-2"></i>
                                         <p class="mb-0">Like {{ $idea->like->count() }}</p>
                                       </a>

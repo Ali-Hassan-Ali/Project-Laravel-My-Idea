@@ -16,9 +16,9 @@ class CreateLikesTable extends Migration
         Schema::create('likes', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(\App\Models\User::class);
-            $table->foreignIdFor(\App\Models\Idea::class);
-            $table->foreignIdFor(\App\Models\Consulting::class);
-            $table->foreignIdFor(\App\Models\InspiringStorie::class);
+            $table->foreignIdFor(\App\Models\Idea::class)->nullable();
+            $table->foreignIdFor(\App\Models\Consulting::class)->nullable();
+            $table->foreignIdFor(\App\Models\InspiringStorie::class)->nullable();
             $table->timestamps();
         });
     }

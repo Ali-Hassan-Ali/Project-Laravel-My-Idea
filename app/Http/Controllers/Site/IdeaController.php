@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Group;
 use App\Models\Chat;
+use App\Models\Like;
 use App\Models\JoinGroup;
 use App\Models\GroupIdea;
 use Illuminate\Http\Request;
@@ -125,5 +126,29 @@ class IdeaController extends Controller
         return redirect()->back();
 
     }//end of comment
+
+
+    public function like(Idea $idea)
+    {
+
+        $like = Like::where('idea_id', $idea->id)->first();
+
+        if (!$like) {
+            
+            Like::create([
+                'user_id'  => auth()->id(),
+                'idea_id'  => $idea->id,
+            ]);
+
+        } else {
+
+            $like->delete();
+            
+        }//end if if
+
+
+        return redirect()->back();
+
+    }//end of like
 
 }//end of controller

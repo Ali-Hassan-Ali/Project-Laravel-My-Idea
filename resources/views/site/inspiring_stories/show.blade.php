@@ -18,7 +18,7 @@
                               <div class="col-12">
                                 <div class="">
                                   <div class="">
-                                    <div class="d-flex flex-start align-items-center">
+                                 {{--    <div class="d-flex flex-start align-items-center">
                                       <img class="rounded-circle shadow-1-strong me-3"
                                         src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(19).webp" alt="avatar" width="60"
                                         height="60" />
@@ -28,13 +28,13 @@
                                           Shared publicly - {{ $inspiringStorie->created_at }}
                                         </p>
                                       </div>
-                                    </div>
+                                    </div> --}}
 
-                                    <p class="mt-3">
-                                      <strong>{{ $inspiringStorie->title }}</strong>
-                                    </p>
+                                    {{-- <p class="mt-3"> --}}
+                                      {{-- <strong>{{ $inspiringStorie->title }}</strong> --}}
+                                    {{-- </p> --}}
 
-                                    <p class="mt-3 mb-4 pb-2">
+                                    <p class="mb-4 pb-2">
                                       <h3>{{ $inspiringStorie->title }}</h3>
                                     </p>
 
@@ -43,9 +43,10 @@
                                     </p>
 
                                     <div class="small d-flex justify-content-start">
-                                      <a href="#!" class="d-flex align-items-center me-3">
-                                        <i class="fa fa-thumbs-up me-2"></i>
-                                        <p class="mb-0">Like {{ $inspiringStorie->like->count() }}</p>
+
+                                      <a href="{{ route('site.inspiring_stories.like.store', $inspiringStorie->id) }}" class="d-flex align-items-center me-3">
+                                          <i class="fa fa-thumbs-up me-2"></i>
+                                          <p class="mb-0">Like {{ $inspiringStorie->like->count() }}</p>
                                       </a>
                                       {{-- <a href="#!" class="d-flex align-items-center me-3">
                                         <i class="fa fa-share me-2"></i>

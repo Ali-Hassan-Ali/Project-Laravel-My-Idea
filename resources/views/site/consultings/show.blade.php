@@ -43,7 +43,7 @@
                                     </p>
 
                                     <div class="small d-flex justify-content-start">
-                                      <a href="#!" class="d-flex align-items-center me-3">
+                                      <a href="{{ route('site.consultings.like.store', $consulting->id) }}" class="d-flex align-items-center me-3">
                                         <i class="fa fa-thumbs-up me-2"></i>
                                         <p class="mb-0">Like {{ $consulting->like->count() }}</p>
                                       </a>
