@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(CategoryTableSeeder::class);
         $this->call(IdeaTableSeeder::class);
         $this->call(ConsultingTableSeeder::class);
+        $this->call(InspiringStorieTableSeeder::class);
 
     }//end of run
     

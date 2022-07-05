@@ -39,6 +39,9 @@
                 <a class="navbar-brand" href="{{ route('site.consultings.index') }}">
                     @lang('consultings.consultings')
                 </a>          
+                <a class="navbar-brand" href="{{ route('site.inspiring_stories.index') }}">
+                    @lang('inspiring_stories.inspiring_stories')
+                </a>          
                 <!-- Right Side Of Navbar -->
                 <ul class="navbar-nav ml-auto">
                     <!-- Authentication Links -->

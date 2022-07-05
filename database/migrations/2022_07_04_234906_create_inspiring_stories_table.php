@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLikesTable extends Migration
+class CreateInspiringStoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateLikesTable extends Migration
      */
     public function up()
     {
-        Schema::create('likes', function (Blueprint $table) {
+        Schema::create('inspiring_stories', function (Blueprint $table) {
             $table->id();
+            $table->string('title');
+            $table->text('description');
+            $table->integer('views_count')->default(0);
+            
             $table->foreignIdFor(\App\Models\User::class);
-            $table->foreignIdFor(\App\Models\Idea::class);
-            $table->foreignIdFor(\App\Models\Consulting::class);
-            $table->foreignIdFor(\App\Models\InspiringStorie::class);
             $table->timestamps();
         });
     }
@@ -30,6 +31,6 @@ class CreateLikesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('likes');
+        Schema::dropIfExists('inspiring_stories');
     }
 }

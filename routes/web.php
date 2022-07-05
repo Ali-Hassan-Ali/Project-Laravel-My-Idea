@@ -7,6 +7,7 @@ use App\Http\Controllers\Site\Auth\AuthController;
 use App\Http\Controllers\Site\GuarpController;
 use App\Http\Controllers\Site\ChatController;
 use App\Http\Controllers\Site\ConsultingController;
+use App\Http\Controllers\Site\InspiringStorieController;
 
 /*
 |--------------------------------------------------------------------------
@@ -49,8 +50,11 @@ Route::name('site.')->group(function () {
     //store routes
     Route::post('/ideas/chat/store/', [ChatController::class, 'store'])->name('ideas.groups.chat.store');
 
-    // 
+    // consultings routes
     Route::resource('consultings', ConsultingController::class);
+
+    // inspiring_stories routes
+    Route::resource('inspiring_stories', InspiringStorieController::class);
 
 });//group(function
 
